@@ -159,12 +159,11 @@ bindsym $mod+r mode "resize"
 
 # Window Color Settings:
 # class                 border  bground text    indicator child_border
-client.focused          #A3BE8C #A3BE8C #D8DEE9 #A3BE8C   #A3BE8C
-client.focused_inactive #4C566A #4C566A #D8DEE9 #4C566A   #4C566A
+client.focused          #A3BE8C #A3BE8C #2E3440 #A3BE8C   #A3BE8C
+client.focused_inactive #4C566A #4C566A #2E3440 #4C566A   #4C566A
 client.unfocused        #2E3440 #2E3440 #BFBFBF #2E3440   #2E3440
 client.urgent           #4C566A #BF616A #D8DEE9 #BF616A   #BF616A
 client.placeholder      #2E3440 #2E3440 #D8DEE9 #2E3440   #2E3440
-
 client.background       #D8DEE9
 
 # Bar Settings:
