@@ -32,9 +32,9 @@ floating_modifier $mod
 bindsym $mod+Shift+q kill
 
 #dmenu
-bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#D8DEE9' -nb '#2E3440' -sb '#4C566A' -sf '#D8DEE9' -fn 'monospace-12' -p 'Terminal'"
+bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#D8DEE9' -nb '#2E3440' -sb '#4C566A' -sf '#D8DEE9' -fn 'LiberationMono-12' -p 'Terminal'"
 # i3-dmenu-desktop
-bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -nf '#D8DEE9' -nb '#2E3440' -sb '#4C566A' -sf '#D8DEE9' -fn 'monospace-12' -p 'Desktop'"
+bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -nf '#D8DEE9' -nb '#2E3440' -sb '#4C566A' -sf '#D8DEE9' -fn 'LiberationMono-12' -p 'Desktop'"
 
 # change focus
 bindsym $mod+h focus left
@@ -204,7 +204,7 @@ exec --no-startup-id fcitx5 -d
 # exec --no-startup-id nm-applet &
 
 # Blueman
-# exec --no-startup-id blueman-applet &
+exec --no-startup-id blueman-applet &
 
 # Audio PulseAudio
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && pkill -RTMIN+10 i3blocks
@@ -231,4 +231,5 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Natual Scrolling
-exec --no-startup-id xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+# exec --no-startup-id xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+exec --no-startup-id xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
