@@ -39,9 +39,9 @@
 *.color15: nord6
 
 XTerm*termName: xterm-256color
-XTerm*faceName: LiberationMono:pixelsize=17:antialias=True
+XTerm*faceName: LiberationMono:pixelsize=14:antialias=True
 
-XTerm*faceSize: 17 
+XTerm*faceSize: 14 
 XTerm*utf8: 2
 XTerm*locale: true
 XTerm*selectToClipboard: true
