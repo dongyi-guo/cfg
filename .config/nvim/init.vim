@@ -45,7 +45,7 @@ syntax on
 filetype on " tell filetype
 filetype plugin indent on " indent based on filetype
 set go=a
-set mouse=a
+set mouse=v
 exec "nohlsearch"
 color nord
 let mapleader=" " " mod key Space
