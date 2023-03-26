@@ -14,8 +14,13 @@ shopt -s histappend
 # Alias
 # Set the dot files sync
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias ls='ls --color=auto -lah' # Make ls more visual friendly
+
 # ls settings
+alias ls='ls --color=auto'    # Make ls more visual friendly
+alias la='ls -a'
+alias ll='ls -l'
+alias lh='ls -h'
+alias lah='ls -lah'
 alias lx='ls -lXB'            #  Sort by extension.
 alias lk='ls -lSr'            #  Sort by size, biggest last.
 alias lt='ls -ltr'            #  Sort by date, most recent last.
