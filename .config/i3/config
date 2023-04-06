@@ -200,8 +200,8 @@ exec --no-startup-id feh --bg-scale /home/dongyi-guo/.Wallpaper/wallpaper.png
 # Fcitx5
 exec --no-startup-id fcitx5 -d
 
-# NetworkManager
-# exec --no-startup-id nm-applet &
+# Xcompmgr
+exec --no-startup-id xcompmgr -c -f -n -s -D3
 
 # Blueman
 exec --no-startup-id blueman-applet &
