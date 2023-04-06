@@ -1,7 +1,7 @@
 # Dongyi's ~/.bashrc
 
 # Set Prompt
-PS1='- \u \t \W \$ '
+PS1='[\u \t \W] \$ '
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
