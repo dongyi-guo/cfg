@@ -5,6 +5,11 @@ PS1='[\u \t \W] \$ '
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export EDITOR="/usr/bin/nvim"
+export SUDO_EDITOR="/usr/bin/nvim"
+export VISUAL="/usr/bin/nvim"
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+
 # History
 # No Duplicates
 HISTCONTROL=ignoreboth
@@ -31,13 +36,14 @@ alias vim='nvim'
 alias vi='nvim'
 
 # Uni
-alias usermin='ssh dongyig@ictteach-usermin.its.utas.edu.au'
+alias usermin='ssh usermin'
+alias ictteach='ssh ictteach'
 
 # Functions
 # Quick Unzip
 extract () {
-  if [ -f $1 ] ; then
-    case $1 in
+  if [ -f "$1" ] ; then
+    case "$1" in
         *.tar.bz2)    tar xvjf $1    ;;
          *.tar.gz)    tar xvzf $1    ;;
          *.bz2)       bunzip2 $1     ;;
@@ -52,7 +58,7 @@ extract () {
          *)           echo "don't know how to extract '$1'..." ;;
      esac
  else
-     echo "'$1' is not a valid file!"
+     echo "No such file: '$1'"
  fi
 }
 

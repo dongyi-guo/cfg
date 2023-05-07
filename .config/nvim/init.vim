@@ -50,7 +50,7 @@ exec "nohlsearch"
 color nord
 let mapleader=" " " mod key Space
 set wrap " wrap lines 
-set spell " spell check
+set nospell " spell check
 set nocompatible " IMproved
 set novisualbell " visual cue off
 set noerrorbells " sound cue off
@@ -84,7 +84,6 @@ set scrolloff=5 " page-turn at %line
 "" Indentation
 set expandtab " always use spaces
 set smarttab " smart
-""" Tab = 2
 set tabstop=2 
 set shiftwidth=2 
 set backspace=2
