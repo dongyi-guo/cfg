@@ -120,9 +120,6 @@ let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 50 
 
-" Fancy way to escape
-:imap ii <Esc>
-
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 set splitbelow splitright
 
