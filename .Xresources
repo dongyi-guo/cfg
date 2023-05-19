@@ -41,7 +41,7 @@
 XTerm*termName: xterm-256color
 XTerm*faceName: LiberationMono:pixelsize=14:antialias=True
 
-XTerm*faceSize: 14 
+XTerm*faceSize: 16 
 XTerm*utf8: 2
 XTerm*locale: true
 XTerm*selectToClipboard: true
