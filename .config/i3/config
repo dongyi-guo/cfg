@@ -195,13 +195,13 @@ exec --no-startup-id dunst
 bindsym $mod+Shift+Return exec google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode
 
 # Background
-exec --no-startup-id feh --bg-scale /home/dongyi-guo/.Wallpaper/wallpaper.png
+exec --no-startup-id feh --bg-scale /home/dongyi-guo/.Wallpaper/yijin.webp
 
 # Fcitx5
 exec --no-startup-id fcitx5 -d
 
 # Xcompmgr
-exec --no-startup-id xcompmgr -c -f -n -s -D3
+exec --no-startup-id xcompmgr -c -f -D3
 
 # Blueman
 exec --no-startup-id blueman-applet &
