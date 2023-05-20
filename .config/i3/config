@@ -195,7 +195,7 @@ exec --no-startup-id dunst
 bindsym $mod+Shift+Return exec google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode
 
 # Background
-exec --no-startup-id feh --bg-scale /home/dongyi-guo/.Wallpaper/yijin.webp
+exec --no-startup-id feh --bg-scale /usr/share/backgrounds/nordic-wallpapers/linux-friends-4k.png
 
 # Fcitx5
 exec --no-startup-id fcitx5 -d
