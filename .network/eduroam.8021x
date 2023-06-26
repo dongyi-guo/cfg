@@ -1,0 +1,10 @@
+[Security]
+EAP-Method=PEAP
+EAP-PEAP-Phase2-Method=MSCHAPV2
+EAP-Identity=anonymous@utas.edu.au
+EAP-PEAP-Phase2-Identity=dongyig@utas.edu.au
+EAP-PEAP-Phase2-Password=
+
+[Settings]
+Autoconnect=true
+
