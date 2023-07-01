@@ -5,6 +5,11 @@ PS1='[\u \t \W] \$ '
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+export XMODIFIERS=’@im=fcitx5’
+export XMODIFIER=’@im=fcitx5’
+export GTK_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx5
+export DefaultIMModule=fcitx5
 export EDITOR="/usr/bin/nvim"
 export SUDO_EDITOR="/usr/bin/nvim"
 export VISUAL="/usr/bin/nvim"
