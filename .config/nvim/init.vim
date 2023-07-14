@@ -27,7 +27,7 @@ Plug 'junegunn/goyo.vim' " Zen Mode
 Plug 'preservim/nerdtree' " File Hierachy
 Plug 'Xuyuanp/nerdtree-git-plugin' " Git on File Hierachy
 "" Markdown Preview
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 "" Syntax Highlighting
 Plug 'vim-python/python-syntax'
 "" End of plug calling
