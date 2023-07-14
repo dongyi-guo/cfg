@@ -20,10 +20,8 @@ exec --no-startup-id xrdb -merge $HOME/.Xresources
 
 # Window layout Configuration
 title_align center
-default_border pixel 1
-default_floating_border pixel 1
-gaps inner 5
-gaps outer 1
+default_border none
+default_floating_border none
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
