@@ -11,6 +11,8 @@ set $mod Mod4
 # Set Terminal
 set $myTerm alacritty
 bindsym $mod+Return exec $myTerm
+bindsym $mod+x exec xterm
+bindsym $mod+u exec uxterm
 
 # Set GUI File Manager
 bindsym $mod+Shift+f exec pcmanfm

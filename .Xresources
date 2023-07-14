@@ -39,9 +39,9 @@
 *.color15: nord6
 
 XTerm*termName: xterm-256color
-XTerm*faceName: LiberationMono:pixelsize=14:antialias=True
+XTerm*faceName: LiberationMono:pixelsize=18:antialias=True
 
-XTerm*faceSize: 16 
+XTerm*faceSize: 18
 XTerm*utf8: 2
 XTerm*locale: true
 XTerm*selectToClipboard: true
@@ -49,3 +49,15 @@ XTerm*scrollBar: false
 XTerm*cursorBlink: false
 XTerm*borderWidth:0
 XTerm*backarrowKey: false
+
+UXTerm*termName: xterm-256color
+UXTerm*faceName: LiberationMono:pixelsize=18:antialias=True
+
+UXTerm*faceSize: 18
+UXTerm*utf8: 2
+UXTerm*locale: true
+UXTerm*selectToClipboard: true
+UXTerm*scrollBar: false
+UXTerm*cursorBlink: false
+UXTerm*borderWidth:0
+UXTerm*backarrowKey: false
