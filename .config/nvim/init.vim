@@ -43,8 +43,8 @@ set novisualbell " visual cue off
 set noerrorbells " sound cue off
 set nobackup " back-up off
 set noswapfile " swap off
-set nowrap " wrap lines 
-set nospell " spell check
+set wrap " wrap lines 
+set spell " spell check
 exec "nohlsearch"
 " Remeber cursor position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif 
