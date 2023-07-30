@@ -14,9 +14,8 @@ bindsym $mod+Return exec $myTerm
 bindsym $mod+x exec xterm
 bindsym $mod+u exec uxterm
 
-# Screen lock
-
-bindsym $mod+i exec mantablockscreen -sc
+# Screen lock with i3lock wrapper
+bindsym $mod+Shift+i exec mantablockscreen -cc
 
 # Set GUI File Manager
 bindsym $mod+Shift+f exec pcmanfm
