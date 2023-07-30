@@ -41,7 +41,6 @@ alias vim='nvim'
 alias vi='nvim'
 
 # Uni
-alias usermin='ssh usermin'
 alias ictteach='ssh ictteach'
 
 # Functions

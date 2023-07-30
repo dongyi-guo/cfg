@@ -14,6 +14,10 @@ bindsym $mod+Return exec $myTerm
 bindsym $mod+x exec xterm
 bindsym $mod+u exec uxterm
 
+# Screen lock
+
+bindsym $mod+i exec mantablockscreen -cc
+
 # Set GUI File Manager
 bindsym $mod+Shift+f exec pcmanfm
 
@@ -195,7 +199,7 @@ exec --no-startup-id dunst
 bindsym $mod+Shift+Return exec google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode
 
 # Background
-exec --no-startup-id feh --bg-scale /usr/share/backgrounds/nordic-wallpapers/ign_cityRainOther.png
+exec --no-startup-id feh --bg-scale /usr/share/backgrounds/nordic-wallpapers/ign_unsplash32.png
 
 # Fcitx5
 exec --no-startup-id fcitx5 -d
