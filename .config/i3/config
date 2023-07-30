@@ -204,8 +204,8 @@ exec --no-startup-id feh --bg-scale /usr/share/backgrounds/nordic-wallpapers/ign
 # Fcitx5
 exec --no-startup-id fcitx5 -d
 
-# Xcompmgr
-exec --no-startup-id xcompmgr -c -f -D3
+# Picom
+exec --no-startup-id picom -bc
 
 # Blueman
 exec --no-startup-id blueman-applet &
