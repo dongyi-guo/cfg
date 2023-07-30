@@ -16,7 +16,7 @@ bindsym $mod+u exec uxterm
 
 # Screen lock
 
-bindsym $mod+i exec mantablockscreen -cc
+bindsym $mod+i exec mantablockscreen -sc
 
 # Set GUI File Manager
 bindsym $mod+Shift+f exec pcmanfm
@@ -205,7 +205,7 @@ exec --no-startup-id feh --bg-scale /usr/share/backgrounds/nordic-wallpapers/ign
 exec --no-startup-id fcitx5 -d
 
 # Picom
-exec --no-startup-id picom -bc
+exec --no-startup-id picom -bc --dbus
 
 # Blueman
 exec --no-startup-id blueman-applet &
