@@ -194,6 +194,9 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # Dunst
 exec --no-startup-id dunst
 
+# Picom
+exec --no-startup-id picom -bcf --dbus
+
 # Chrome
 bindsym $mod+Shift+Return exec google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode
 
