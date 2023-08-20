@@ -198,13 +198,10 @@ exec --no-startup-id dunst
 bindsym $mod+Shift+Return exec google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode
 
 # Background
-exec --no-startup-id feh --bg-scale /usr/share/backgrounds/nordic-wallpapers/ign_unsplash32.png
+exec --no-startup-id feh --bg-fill /usr/share/backgrounds/nordic-wallpapers/earth-in-space.png
 
 # Fcitx5
 exec --no-startup-id fcitx5 -d
-
-# Picom
-exec --no-startup-id picom -bc --dbus
 
 # Blueman
 exec --no-startup-id blueman-applet &
