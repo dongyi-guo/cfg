@@ -201,7 +201,7 @@ exec --no-startup-id picom -bcf --dbus
 bindsym $mod+Shift+Return exec google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode
 
 # Background
-exec --no-startup-id feh --bg-fill /usr/share/backgrounds/nordic-wallpapers/earth-in-space.png
+exec --no-startup-id feh --bg-fill /usr/share/backgrounds/nordic-wallpapers/ign_lighthouse.png
 
 # Fcitx5
 exec --no-startup-id fcitx5 -d
@@ -210,14 +210,14 @@ exec --no-startup-id fcitx5 -d
 exec --no-startup-id blueman-applet &
 
 # Audio PulseAudio
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && pkill -RTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && pkill -RTMIN+10 i3blocks
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+10 i3blocks
 
 # Alternatively:
-bindsym $mod+Ctrl+Shift+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && pkill -RTMIN+10 i3blocks
-bindsym $mod+Ctrl+Shift+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && pkill -RTMIN+10 i3blocks
+bindsym $mod+Ctrl+Shift+Up exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks
+bindsym $mod+Ctrl+Shift+Down exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -RTMIN+10 i3blocks
 
 # Brightness
 bindsym XF86MonBrightnessUp exec brightnessctl s 10%+ # increase screen brightness

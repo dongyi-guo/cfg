@@ -60,13 +60,13 @@ env:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: Windowed
+  startup_mode: Fullscreen
 
   # Window title
   #title: Alacritty
 
   # Allow terminal applications to change Alacritty's window title.
-  dynamic_title: 'true'
+  dynamic_title: 'false'
 
   # Window class (Linux/BSD only):
   #class:
@@ -211,7 +211,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-window.opacity: 0.6 
+window.opacity: 1.0 
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"

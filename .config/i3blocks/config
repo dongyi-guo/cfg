@@ -29,15 +29,12 @@ command=$HOME/.config/i3blocks/script_dir/$BLOCK_NAME/$BLOCK_NAME
 separator_block_width=12
 markup=none
 
-[iface]
-interval=60
-
 [wifi]
-interval=5
+interval=1
 
 [bandwidth]
 instance=wlan0
-interval=10
+interval=1
 
 # CPU usage
 #
@@ -46,14 +43,17 @@ interval=10
 # Dependency: sysstat
 [cpu_usage]
 label=CPU:
-interval=10
+interval=1
 
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
 label=RAM:
-interval=10
+interval=1
+
+[iface]
+interval=1
 
 # Disk usage
 #
@@ -62,8 +62,22 @@ interval=10
 # (defaults to 10 for 10%).
 [disk]
 label=Storage:
-interval=60
+interval=1
 
+[volume-pulseaudio]
+label=VOL: 
+signal=10
+interval=persist
+SUBSCRIBE=1
+USE_ALSA_NAME=0
+LONG_FORMAT=${VOL}%
+SHORT_FORMAT=${VOL}%
+
+[battery]
+label=BAT: 
+interval=1
+
+# Caps Lock Indicator
 [keyindicator]
 KEY=CAPS
 signal=11
@@ -72,20 +86,8 @@ interval=once
 COLOR_OFF=#4C566A
 COLOR_ON=#D8DEE9
 
-[battery]
-label=BAT: 
-interval=30
-
-[volume-pulseaudio]
-label=VOL: 
-interval=persist
-SUBSCRIBE=1
-USE_ALSA_NAME=0
-LONG_FORMAT=${VOL}%
-SHORT_FORMAT=${VOL}%
-
 [time]
-command=date '+%H:%M:%S %m/%d'
+command=date '+%H:%M:%S %y/%m/%d'
 interval=1
 
 # Generic media player support
