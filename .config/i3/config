@@ -21,13 +21,14 @@ bindsym $mod+Shift+i exec mantablockscreen -cc
 bindsym $mod+Shift+f exec pcmanfm
 
 # Load .Xresources
-exec --no-startup-id xrdb -merge $HOME/.Xresources
+exec --no-startup-id xrdb $HOME/.Xresources
 
 # Window layout Configuration
 title_align center
 default_border none
 default_floating_border none
-
+gaps inner 6
+gaps outer 3
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -174,12 +175,12 @@ bar {
    	status_command i3blocks 
   	position top
     strip_workspace_numbers yes
-
+    tray_output primary
+    tray_padding 3
 	colors {
         background #2E3440
         statusline #D8DEE9
         separator  #4C566A
-    
         focused_workspace  #4C566A #4C566A #D8DEE9
         active_workspace   #2E3440 #4C566A #D8DEE9
         inactive_workspace #2E3440 #2E3440 #BFBFBF
@@ -194,14 +195,20 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # Dunst
 exec --no-startup-id dunst
 
+# NetworkManager
+exec --no-startup-id nm-tray
+
 # Picom
 exec --no-startup-id picom -bcf --dbus
 
+# Gnome-Keyring
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+
 # Chrome
-bindsym $mod+Shift+Return exec google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode
+bindsym $mod+Shift+Return exec google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode --password-store=gnome
 
 # Background
-exec --no-startup-id feh --bg-fill /usr/share/backgrounds/nordic-wallpapers/ign_lighthouse.png
+exec --no-startup-id feh --bg-fill /usr/share/backgrounds/nordic-wallpapers/wallpapers/ign_lighthouse.png
 
 # Fcitx5
 exec --no-startup-id fcitx5 -d
@@ -235,4 +242,5 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Natual Scrolling
 # exec --no-startup-id xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
-exec --no-startup-id xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
+# exec --no-startup-id xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
+exec --no-startup-id xinput --set-prop "ELAN0501:00 04F3:3010 Touchpad" "libinput Natural Scrolling Enabled" 1
