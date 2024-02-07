@@ -5,11 +5,10 @@ PS1='[\u \t \W] \$ '
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export XMODIFIERS=’@im=fcitx5’
-export XMODIFIER=’@im=fcitx5’
-export GTK_IM_MODULE=fcitx5
-export QT_IM_MODULE=fcitx5
-export DefaultIMModule=fcitx5
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export DefaultIMModule=fcitx
 export EDITOR="/usr/bin/nvim"
 export SUDO_EDITOR="/usr/bin/nvim"
 export VISUAL="/usr/bin/nvim"
@@ -193,3 +192,4 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+figlet -f slant " Dongyi Guo" | lolcat
