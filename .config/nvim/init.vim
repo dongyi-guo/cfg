@@ -1,11 +1,14 @@
 
-""""""""""""""""""""""
-" Dongyi Guo's VimRC "
-""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""
+" Dongyi Guo's ~/.config/nvim/init.vim "
+""""""""""""""""""""""""""""""""""""""""
+
+" This is my Vim file for Neovim.
 
 """"""""""""
 " Vim Plug "
 """"""""""""
+
 " Prepare vim-plug on first set-up
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
@@ -13,24 +16,29 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
 	autocmd VimEnter * PlugInstall
 endif
-" Plug List 
-"" Start calling plugs
+
+" Start calling plugs
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
-"" Appearances
+
+" Appearances
 Plug 'arcticicestudio/nord-vim' " Nord
 Plug 'junegunn/vim-emoji' " Emoji
-"" Status Line
+" Status Line
 Plug 'vim-airline/vim-airline' " Status line
 Plug 'vim-airline/vim-airline-themes' " Status line theme
-"" Tools
+" Tools
+Plug 'kamykn/spelunker.vim' " Spell check
+Plug 'kamykn/popup-menu.nvim' " Word Pop-up for spell check
 Plug 'junegunn/goyo.vim' " Zen Mode
 Plug 'preservim/nerdtree' " File Hierachy
 Plug 'Xuyuanp/nerdtree-git-plugin' " Git on File Hierachy
-"" Markdown Preview
+" Markdown Preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-"" Syntax Highlighting
+" Syntax Highlighting
 Plug 'vim-python/python-syntax'
-"" End of plug calling
+Plug 'TovarishFin/vim-solidity'
+
+" End of plug calling
 call plug#end()
 
 """"""""""""""""""""
@@ -44,14 +52,18 @@ set noerrorbells " sound cue off
 set nobackup " back-up off
 set noswapfile " swap off
 set wrap " wrap lines 
-set spell " spell check
+set nospell " spell check
 exec "nohlsearch"
-" Remeber cursor position
+
+" Remember cursor position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif 
+
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 set splitbelow splitright
+
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 set go=a
 set mouse=v
 color nord
@@ -61,12 +73,12 @@ set t_BE= " better paste
 autocmd InsertLeave * set nopaste " paste in I-mode only
 set lazyredraw " better macro with less re-drawing
 
-"" Outcome
+" Outcome
 set linespace=10
 set number " line number
 set norelativenumber " relative line number
 set ruler " cursor position
-set cursorline " underline
+set nocursorline " underline
 set nolist
 set autochdir 
 set noshowmode
@@ -75,19 +87,19 @@ set ttyfast
 set cmdheight=1
 set laststatus=0 " no status line
 
-"" Command-mode
+" Command-mode
 set wildmenu " autocomplete
 set wildmode=longest,list,full " style of autocomplete
 set scrolloff=3 " page-turn at %line
 
-"" Indentation
+" Indentation
 set expandtab " always use spaces
 set smarttab " smart
-set tabstop=2 
-set shiftwidth=2 
+set tabstop=4 
+set shiftwidth=4 
 set backspace=2
 
-"" Search
+" Search
 set hlsearch " highlight
 set incsearch " incremental
 set ignorecase " case-insensitve
@@ -97,12 +109,15 @@ set smartcase " smart
 " Key Bindings "
 """"""""""""""""
 
-let mapleader=" " " <LEADER> 
+" Make Space the <LEADER> button
+let mapleader=" "
+
 " Movement
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
 " Buffer
 map <LEADER>b
 map <LEADER>B :buffers<CR>
@@ -110,22 +125,27 @@ map <LEADER>[ :bprevious<CR>
 map <LEADER>] :bnext<CR>
 map <LEADER>C :bdelete<CR>
 map <LEADER>q :bwipeout<CR>
+
 " Tab
 map <LEADER>t :tabnew<CR>
 map <LEADER>T :tabs<CR>
 map <LEADER>Q :tabclose<CR>
 map <LEADER>{ :tabprevious<CR>
 map <LEADER>} :tabnext<CR>
+
 " Disable highlights
 map <LEADER>c :nohlsearch<CR>
+
 " NERDTre
 map <LEADER>n :NERDTreeToggle<CR>
+
 " Goyo
 map <LEADER>G :Goyo<CR>
 
 """""""""""""""""""
 " Plugin Settings "
 """""""""""""""""""
+
 " Airline
 let g:airline_theme='nord'
 let g:airline_powerline_fonts = 0
@@ -172,18 +192,21 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ }
 
 " Markdown Preview
-let g:mkdp_refresh_slow = 0 " Auto Refresh
-let g:mkdp_command_for_global = 0 " Markdown Only
+let g:mkdp_command_for_global = 1 " All File types
+let g:mkdp_filetypes = ['markdown'] " Support filetype
+let g:mkdp_theme = 'light' " Light for Work
+let g:mkdp_page_title = '「${name}」' " Page name
+
 let g:mkdp_auto_start = 1 " Auto Open
 let g:mkdp_auto_close = 1 " Auto Close
-let g:mkdp_theme = 'dark' " Theme
-let g:mkdp_page_title = '「${name}」' " Page name
-let g:mkdp_filetypes = ['markdown'] " Support filetype
-let g:mkdp_open_to_the_world = 1 " Open to Remote
-let g:mkdp_browser = '/usr/bin/google-chrome-stable'  " Browser
+let g:mkdp_refresh_slow = 1 " Auto Refresh
+
+let g:mkdp_open_to_the_world = 1 " Open to Network
 let g:mkdp_open_ip = '127.0.0.1' " IP
 let g:mkdp_port = '8080' " Port
+let g:mkdp_browser = '/usr/bin/google-chrome-stable'  " Browser
 let g:mkdp_echo_preview_url = 1 " Give link
+
 " Action after browser opening
 function! g:Open_browser(url)
     silent exe '!lemonade open 'a:url
@@ -226,6 +249,81 @@ let g:mkdp_preview_options = {
     \ 'disable_filename': 0,
     \ 'toc': {}
     \ }
+
+" Spelunker: Spell check
+
+" Enable spelunker.vim. (default: 1)
+" 1: enable
+" 0: disable
+let g:enable_spelunker_vim = 1
+
+" Enable spelunker.vim on readonly files or buffer. (default: 0)
+" 1: enable
+" 0: disable
+let g:enable_spelunker_vim_on_readonly = 1
+
+" Check spelling for words longer than set characters. (default: 4)
+let g:spelunker_target_min_char_len = 4
+
+" Max amount of word suggestions. (default: 15)
+let g:spelunker_max_suggest_words = 15
+
+" Max amount of highlighted words in buffer. (default: 100)
+let g:spelunker_max_hi_words_each_buf = 100
+
+" Spellcheck type: (default: 1)
+" 1: File is checked for spelling mistakes when opening and saving. This
+" may take a bit of time on large files.
+" 2: Spellcheck displayed words in buffer. Fast and dynamic. The waiting time depends on the setting of CursorHold `set updatetime=1000`.
+let g:spelunker_check_type = 1
+
+" Highlight type: (default: 1)
+" 1: Highlight all types (SpellBad, SpellCap, SpellRare, SpellLocal).
+" 2: Highlight only SpellBad.
+" FYI: https://vim-jp.org/vimdoc-en/spell.html#spell-quickstart
+let g:spelunker_highlight_type = 1
+
+" Option to disable word checking.
+" Disable URI checking. (default: 0)
+let g:spelunker_disable_uri_checking = 1
+
+" Disable email-like words checking. (default: 0)
+let g:spelunker_disable_email_checking = 1
+
+" Disable account name checking, e.g. @foobar, foobar@. (default: 0)
+" NOTE: Spell checking is also disabled for JAVA annotations.
+let g:spelunker_disable_account_name_checking = 1
+
+" Disable acronym checking. (default: 0)
+let g:spelunker_disable_acronym_checking = 1
+
+" Disable checking words in backtick/backquote. (default: 0)
+let g:spelunker_disable_backquoted_checking = 1
+
+" Disable default autogroup. (default: 0)
+let g:spelunker_disable_auto_group = 1
+
+" Create own custom autogroup to enable spelunker.vim for specific filetypes.
+augroup spelunker
+  autocmd!
+  " Setting for g:spelunker_check_type = 1:
+  autocmd BufWinEnter,BufWritePost *.vim,*.js,*.jsx,*.json,*.md call spelunker#check()
+
+  " Setting for g:spelunker_check_type = 2:
+  autocmd CursorHold *.vim,*.js,*.jsx,*.json,*.md call spelunker#check_displayed_words()
+augroup END
+
+" Override highlight group name of incorrectly spelled words. (default:
+" 'SpelunkerSpellBad')
+let g:spelunker_spell_bad_group = 'SpelunkerSpellBad'
+
+" Override highlight group name of complex or compound words. (default:
+" 'SpelunkerComplexOrCompoundWord')
+let g:spelunker_complex_or_compound_word_group = 'SpelunkerComplexOrCompoundWord'
+
+" Override highlight setting.
+highlight SpelunkerSpellBad cterm=underline ctermfg=247 gui=underline guifg=#9e9e9e
+highlight SpelunkerComplexOrCompoundWord cterm=underline ctermfg=NONE gui=underline guifg=NONE
 
 """""""""""""""
 " Many thanks "
