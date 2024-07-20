@@ -201,14 +201,13 @@ exec --no-startup-id nm-tray
 # Picom
 exec --no-startup-id picom -bcf --dbus
 
-# Gnome-Keyring
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 
 # Chrome
-bindsym $mod+Shift+Return exec google-chrome-stable --enable-features=WebUIDarkMode --force-dark-mode --password-store=gnome
+exec --no-startup-id kwalletd5
+bindsym $mod+Shift+Return exec google-chrome-stable 
 
 # Background
-exec --no-startup-id feh --bg-fill /usr/share/backgrounds/nordic-wallpapers/wallpapers/ign_lighthouse.png
+exec --no-startup-id feh --bg-fill /usr/share/backgrounds/nordic-wallpapers/wallpapers/ign_cityRain.png
 
 # Fcitx5
 exec --no-startup-id fcitx5 -d

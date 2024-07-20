@@ -1,15 +1,11 @@
-
 """"""""""""""""""""""""""""""""""""""""
 " Dongyi Guo's ~/.config/nvim/init.vim "
 """"""""""""""""""""""""""""""""""""""""
 
-" This is my Vim file for Neovim.
-
 """"""""""""
 " Vim Plug "
 """"""""""""
-
-" Prepare vim-plug on first set-up
+" Prepare vim-plug if haven't 
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
 	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
@@ -17,28 +13,23 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 	autocmd VimEnter * PlugInstall
 endif
 
-" Start calling plugs
+" Call Plugs
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 
 " Appearances
 Plug 'arcticicestudio/nord-vim' " Nord
-Plug 'junegunn/vim-emoji' " Emoji
 " Status Line
 Plug 'vim-airline/vim-airline' " Status line
 Plug 'vim-airline/vim-airline-themes' " Status line theme
 " Tools
 Plug 'kamykn/spelunker.vim' " Spell check
 Plug 'kamykn/popup-menu.nvim' " Word Pop-up for spell check
-Plug 'junegunn/goyo.vim' " Zen Mode
 Plug 'preservim/nerdtree' " File Hierachy
 Plug 'Xuyuanp/nerdtree-git-plugin' " Git on File Hierachy
-" Markdown Preview
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
-" Syntax Highlighting
+" Syntax Highlighting and Document Preview
 Plug 'vim-python/python-syntax'
 Plug 'TovarishFin/vim-solidity'
-
-" End of plug calling
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 call plug#end()
 
 """"""""""""""""""""
@@ -65,9 +56,10 @@ set splitbelow splitright
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 set go=a
-set mouse=v
+set mouse=a
 color nord
-set nocompatible " IMproved
+hi Normal guibg=NONE ctermbg=NONE " No background color
+set nocompatible " No Vi
 set t_Co=256 " 256-color
 set t_BE= " better paste
 autocmd InsertLeave * set nopaste " paste in I-mode only
@@ -109,52 +101,51 @@ set smartcase " smart
 " Key Bindings "
 """"""""""""""""
 
-" Make Space the <LEADER> button
-let mapleader=" "
+" Space bar is <LEADER> button
+let mapleader=","
 
 " Movement
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+map <C-n> :NERDTreeToggle<CR>
+map <C-x> :nohlsearch<CR>
 
 " Buffer
-map <LEADER>b
-map <LEADER>B :buffers<CR>
-map <LEADER>[ :bprevious<CR>
-map <LEADER>] :bnext<CR>
-map <LEADER>C :bdelete<CR>
-map <LEADER>q :bwipeout<CR>
+map <LEADER>b :buffers<CR>
+map <LEADER>; :bprevious<CR>
+map <LEADER>' :bnext<CR>
+map <LEADER>c :bdelete<CR>
+map <LEADER>w :bwipeout<CR>
 
 " Tab
 map <LEADER>t :tabnew<CR>
-map <LEADER>T :tabs<CR>
-map <LEADER>Q :tabclose<CR>
-map <LEADER>{ :tabprevious<CR>
-map <LEADER>} :tabnext<CR>
+map <LEADER>l :tabs<CR>
+map <LEADER>q :tabclose<CR>
+map <LEADER>[ :tabprevious<CR>
+map <LEADER>] :tabnext<CR>
 
-" Disable highlights
-map <LEADER>c :nohlsearch<CR>
-
-" NERDTre
-map <LEADER>n :NERDTreeToggle<CR>
-
-" Goyo
-map <LEADER>G :Goyo<CR>
 
 """""""""""""""""""
 " Plugin Settings "
 """""""""""""""""""
 
-" Airline
+"""""""""""
+" Airline "
+"""""""""""
 let g:airline_theme='nord'
 let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-" NERDTree
+""""""""""""
+" NERDTree "
+""""""""""""
+
+" Icons
 let g:NERDTreeDirArrowExpandable = '►'
 let g:NERDTreeDirArrowCollapsible = '▼'
 let NERDTreeShowLineNumbers = 0
@@ -250,7 +241,9 @@ let g:mkdp_preview_options = {
     \ 'toc': {}
     \ }
 
-" Spelunker: Spell check
+"""""""""""""""""""""""""
+" Spelunker: Spell check"
+"""""""""""""""""""""""""
 
 " Enable spelunker.vim. (default: 1)
 " 1: enable

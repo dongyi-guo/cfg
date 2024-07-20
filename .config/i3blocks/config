@@ -30,10 +30,10 @@ separator_block_width=15
 markup=none
 
 [wifi]
-interval=5
+interval=1
 
 [bandwidth]
-interval=5
+interval=1
 
 # CPU usage
 #
@@ -42,7 +42,7 @@ interval=5
 # Dependency: sysstat
 [cpu_usage]
 label=CPU:
-interval=5
+interval=1
 
 # Memory usage
 #
@@ -55,7 +55,6 @@ interval=5
 interval=5
 
 # Disk usage
-#
 # The directory defaults to $HOME if the instance is not specified.
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
