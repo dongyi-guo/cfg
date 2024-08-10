@@ -62,7 +62,7 @@ hi Normal guibg=NONE ctermbg=NONE " No background color
 set nocompatible " No Vi
 set t_Co=256 " 256-color
 set t_BE= " better paste
-autocmd InsertLeave * set nopaste " paste in I-mode only
+" autocmd InsertLeave * set nopaste " paste in I-mode only
 set lazyredraw " better macro with less re-drawing
 
 " Outcome
