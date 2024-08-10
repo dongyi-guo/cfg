@@ -209,7 +209,7 @@ exec --no-startup-id redshift-gtk
 bindsym $mod+Shift+Return exec google-chrome-stable 
 
 # Background
-exec --no-startup-id feh --bg-fill /usr/share/backgrounds/nordic-wallpapers/wallpapers/ign_cityRain.png
+exec --no-startup-id feh --bg-fill /usr/share/backgrounds/nordic-wallpapers/ign_cityRain.png
 
 # Fcitx5
 # exec --no-startup-id fcitx5 -d
