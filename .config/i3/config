@@ -92,16 +92,16 @@ bindsym $mod+c focus child
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:One"
-set $ws2 "2:Two"
-set $ws3 "3:Three"
-set $ws4 "4:Four"
-set $ws5 "5:Five"
-set $ws6 "6:Six"
-set $ws7 "7:Seven" 
-set $ws8 "8:Eight" 
-set $ws9 "9:Nine" 
-set $ws10 "10:Ten"
+set $ws1 "1:www"
+set $ws2 "2:tty"
+set $ws3 "3:vim"
+set $ws4 "4:code"
+set $ws5 "5:file"
+set $ws6 "6:fg1"
+set $ws7 "7:fg2" 
+set $ws8 "8:fg3" 
+set $ws9 "9:fg4" 
+set $ws10 "10:bg"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -200,9 +200,6 @@ exec --no-startup-id nm-tray
 
 # Picom
 exec --no-startup-id picom -bcf --dbus
-
-# Redshift
-exec --no-startup-id redshift-gtk
 
 # Chrome
 # exec --no-startup-id kwalletd5
