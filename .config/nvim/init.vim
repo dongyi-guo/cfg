@@ -28,23 +28,26 @@ Plug 'preservim/nerdtree' " File Hierachy
 Plug 'Xuyuanp/nerdtree-git-plugin' " Git on File Hierachy
 " Syntax Highlighting and Document Preview
 Plug 'vim-python/python-syntax'
-Plug 'TovarishFin/vim-solidity'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 call plug#end()
 
 """"""""""""""""""""
 " General Settings "
 """"""""""""""""""""
+" Syntax and Indentation
 syntax on " enable syntax
 filetype on " enable filetype
 filetype plugin indent on " enable indentation based on filetype
+" Cues
 set novisualbell " visual cue off
 set noerrorbells " sound cue off
-set nobackup " back-up off
-set noswapfile " swap off
-set wrap " wrap lines 
 set nospell " spell check
 exec "nohlsearch"
+" No Back-ups
+set nobackup
+set nowritebackup
+set noswapfile " swap off
+set wrap " wrap lines 
 
 " Remember cursor position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif 
@@ -66,6 +69,9 @@ set t_BE= " better paste
 set lazyredraw " better macro with less re-drawing
 
 " Outcome
+set encoding=utf-8 " encoding with UTF-8
+set updatetime=300 " update at 0.3s (default is 4)
+set signcolumn=yes " Prevent shift
 set linespace=10
 set number " line number
 set norelativenumber " relative line number
@@ -86,10 +92,9 @@ set scrolloff=3 " page-turn at %line
 
 " Indentation
 set expandtab " always use spaces
-set smarttab " smart
-set tabstop=4 
-set shiftwidth=4 
-set backspace=2
+set smarttab " smart tabbing
+set ts=4 sw=4 " tab 4 spaces as indentation
+set backspace=2 " allow backspaces everywhere
 
 " Search
 set hlsearch " highlight
@@ -100,7 +105,6 @@ set smartcase " smart
 """"""""""""""""
 " Key Bindings "
 """"""""""""""""
-
 " Space bar is <LEADER> button
 let mapleader=","
 
@@ -127,9 +131,9 @@ map <LEADER>[ :tabprevious<CR>
 map <LEADER>] :tabnext<CR>
 
 
-"""""""""""""""""""
-" Plugin Settings "
-"""""""""""""""""""
+"""""""""""""""""""""""
+  " Plugin Settings "
+"""""""""""""""""""""""
 
 """""""""""
 " Airline "
@@ -144,7 +148,6 @@ let g:airline#extensions#tabline#formatter = 'unique_tail'
 """"""""""""
 " NERDTree "
 """"""""""""
-
 " Icons
 let g:NERDTreeDirArrowExpandable = '►'
 let g:NERDTreeDirArrowCollapsible = '▼'
@@ -182,7 +185,9 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Unknown"   : "?"
     \ }
 
-" Markdown Preview
+""""""""""""""""""""
+" Markdown Preview "
+""""""""""""""""""""
 let g:mkdp_command_for_global = 1 " All File types
 let g:mkdp_filetypes = ['markdown'] " Support filetype
 let g:mkdp_theme = 'light' " Light for Work
@@ -244,7 +249,6 @@ let g:mkdp_preview_options = {
 """""""""""""""""""""""""
 " Spelunker: Spell check"
 """""""""""""""""""""""""
-
 " Enable spelunker.vim. (default: 1)
 " 1: enable
 " 0: disable
@@ -321,7 +325,6 @@ highlight SpelunkerComplexOrCompoundWord cterm=underline ctermfg=NONE gui=underl
 """""""""""""""
 " Many thanks "
 """""""""""""""
-
 " Luke Smith: https://github.com/LukeSmithxyz/voidrice/tree/master/.config/nvim
 " durdn: https://bitbucket.org/durdn/cfg/src/a27d79339293eb55a5d96aa9aa98f92d3360471d/.nvim/init.vim#lines-71
 " theniceboy: https://github.com/theniceboy/.vim/blob/master/vimrc

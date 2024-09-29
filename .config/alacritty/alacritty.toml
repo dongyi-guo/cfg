@@ -64,14 +64,14 @@ startup_mode = "Fullscreen"
 
 [font]
 # draw_bold_text_with_bright_colors = true
-size = 9
+size = 16
 
 [font.bold]
-family = "LiberationMono"
+family = "Menlo"
 style = "Bold"
 
 [font.bold_italic]
-family = "LiberationMono"
+family = "Menlo"
 style = "Bold Italic"
 
 [font.glyph_offset]
@@ -79,11 +79,11 @@ x = 0
 y = 0
 
 [font.italic]
-family = "LiberationMono"
+family = "Menlo"
 style = "Italic"
 
 [font.normal]
-family = "LiberationMono"
+family = "Menlo"
 style = "Regular"
 
 [font.offset]
