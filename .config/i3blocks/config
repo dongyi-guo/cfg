@@ -29,9 +29,7 @@ command=$HOME/.config/i3blocks/scripts/$BLOCK_NAME/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
-[wifi]
-interval=1
-
+# Bandwidth
 [bandwidth]
 interval=1
 
@@ -42,7 +40,7 @@ interval=1
 # Dependency: sysstat
 [cpu_usage]
 label=CPU:
-interval=1
+interval=5
 
 # Memory usage
 #
@@ -51,15 +49,12 @@ interval=1
 label=RAM:
 interval=5
 
-[iface]
-interval=5
-
 # Disk usage
 # The directory defaults to $HOME if the instance is not specified.
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 [disk]
-label=Storage:
+label=ROM:
 interval=5
 
 [volume-pulseaudio]
@@ -85,7 +80,7 @@ interval=1
 # COLOR_ON=#D8DEE9
 
 [time]
-command=date '+%H:%M:%S %y/%m/%d'
+command=date '+%m/%d-%H:%M:%S'
 interval=1
 
 # Generic media player support
