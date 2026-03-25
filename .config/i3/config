@@ -202,20 +202,20 @@ exec --no-startup-id nm-tray
 exec_always --no-startup-id autorandr --change
 
 # Picom
-exec --no-startup-id picom -bcf --dbus
+exec --no-startup-id picom
 
 # Chrome
 # exec --no-startup-id kwalletd5
 bindsym $mod+Shift+Return exec google-chrome-stable 
 
 # Background
-exec --no-startup-id feh --bg-fill /usr/share/backgrounds/nordic-wallpapers/earth-in-space.png
+exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/nordic-wallpapers/earth-in-space.png
 
 # Fcitx5
 # exec --no-startup-id fcitx5 -d
 
 # Blueman
-exec --no-startup-id blueman-applet &
+exec --no-startup-id blueman-applet
 
 # Audio PulseAudio
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -RTMIN+10 i3blocks
@@ -244,4 +244,4 @@ bindsym XF86AudioPrev exec playerctl previous
 # Natual Scrolling
 # exec --no-startup-id xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
 # exec --no-startup-id xinput --set-prop "ETPS/2 Elantech Touchpad" "libinput Natural Scrolling Enabled" 1
-exec --no-startup-id xinput --set-prop "ELAN0501:00 04F3:3010 Touchpad" "libinput Natural Scrolling Enabled" 1
+exec_always --no-startup-id xinput --set-prop "ELAN0501:00 04F3:3010 Touchpad" "libinput Natural Scrolling Enabled" 1
