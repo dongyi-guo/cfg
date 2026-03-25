@@ -31,7 +31,7 @@ markup=none
 
 # Bandwidth
 [bandwidth]
-interval=1
+interval=3
 
 # CPU usage
 #
@@ -40,14 +40,14 @@ interval=1
 # Dependency: sysstat
 [cpu_usage]
 label=CPU:
-interval=5
+interval=3
 
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
 label=RAM:
-interval=5
+interval=3
 
 # Disk usage
 # The directory defaults to $HOME if the instance is not specified.
@@ -55,20 +55,20 @@ interval=5
 # (defaults to 10 for 10%).
 [disk]
 label=ROM:
-interval=5
+interval=10
 
 [volume-pulseaudio]
-label=VOL: 
+# label= 
 signal=10
 interval=once
 # SUBSCRIBE=1
-# USE_ALSA_NAME=0
+USE_ALSA_NAME=1
 # LONG_FORMAT=${VOL}%
 # SHORT_FORMAT=${VOL}%
 
 [battery]
 label=BAT: 
-interval=1
+interval=10
 
 # Caps Lock Indicator
 # [keyindicator]

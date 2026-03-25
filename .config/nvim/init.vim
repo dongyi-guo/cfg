@@ -58,7 +58,6 @@ set splitbelow splitright
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-set go=a
 set mouse=a
 color nord
 hi Normal guibg=NONE ctermbg=NONE " No background color
