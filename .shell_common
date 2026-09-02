@@ -1,0 +1,95 @@
+# ~/.shell_common
+# Shared between .bashrc (Linux) and .zshrc (macOS, Oh My Zsh).
+# Only shell-agnostic content belongs here: aliases, exports, functions.
+# History settings, prompt, and Oh My Zsh plugin config stay in the
+# shell-specific files, since they differ between bash and zsh.
+
+# --- Editor: NeoVim, falling back to Vim, then Vi ---
+if command -v nvim >/dev/null 2>&1; then
+  _preferred_editor="$(command -v nvim)"
+  alias vim='nvim'
+  alias vi='nvim'
+elif command -v vim >/dev/null 2>&1; then
+  _preferred_editor="$(command -v vim)"
+  alias vi='vim'
+else
+  _preferred_editor="$(command -v vi)"
+fi
+
+export EDITOR="$_preferred_editor"
+export SUDO_EDITOR="$_preferred_editor"
+export VISUAL="$_preferred_editor"
+unset _preferred_editor
+
+# --- ls aliases ---
+if ls --color=auto >/dev/null 2>&1; then
+  alias ls='ls --color=auto'   # GNU ls (Linux)
+else
+  alias ls='ls -G'             # BSD ls (macOS)
+fi
+alias la='ls -a'
+alias ll='ls -l'
+alias lh='ls -h'
+alias lah='ls -lah'
+alias lx='ls -lXB'            # Sort by extension
+alias lk='ls -lSr'            # Sort by size, biggest last
+alias lt='ls -ltr'            # Sort by date, most recent last
+alias lc='ls -ltcr'           # Sort by/show change time, most recent last
+alias lu='ls -ltur'           # Sort by/show access time, most recent last
+
+# --- Coloured grep (works on both GNU grep and BSD grep) ---
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# --- Coloured diff (GNU diff only; guarded for BSD diff on macOS) ---
+if diff --color=auto . . >/dev/null 2>&1; then
+  alias diff='diff --color=auto'
+fi
+
+# --- Coloured, readable man pages via less ---
+export LESS='-R'
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+# --- Quick up directories ---
+up () {
+  local d="" limit="$1" i
+  for (( i=1; i<=limit; i++ )); do
+    d="$d/.."
+  done
+  d=$(echo "$d" | sed 's|^/||')
+  [ -z "$d" ] && d=".."
+  cd "$d" || return
+}
+
+# --- Quick unzip ---
+# Only defined if a command named "extract" doesn't already exist
+# (e.g. when the Oh My Zsh "extract" plugin is enabled, that version wins).
+if ! command -v extract >/dev/null 2>&1; then
+  extract () {
+    if [ -f "$1" ]; then
+      case "$1" in
+        *.tar.bz2)  tar xvjf "$1"    ;;
+        *.tar.gz)   tar xvzf "$1"    ;;
+        *.bz2)      bunzip2 "$1"     ;;
+        *.rar)      unrar x "$1"     ;;
+        *.gz)       gunzip "$1"      ;;
+        *.tar)      tar xvf "$1"     ;;
+        *.tbz2)     tar xvjf "$1"    ;;
+        *.tgz)      tar xvzf "$1"    ;;
+        *.zip)      unzip "$1"       ;;
+        *.Z)        uncompress "$1"  ;;
+        *.7z)       7z x "$1"        ;;
+        *)          echo "don't know how to extract '$1'..." ;;
+      esac
+    else
+      echo "No such file: '$1'"
+    fi
+  }
+fi
